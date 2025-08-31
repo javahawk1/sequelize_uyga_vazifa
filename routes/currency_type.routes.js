@@ -1,18 +1,18 @@
-const express = require("express");
+const express = require("express")
 const { 
     addCurrencyType, 
     getAllCurrencyTypes, 
     getCurrencyTypeById, 
     updateCurrencyType, 
     deleteCurrencyType 
-} = require("../controllers/currency_type.controller");
+} = require("../controllers/currency_type.controller")
 
-const router = express.Router();
+const router = express.Router()
 
-router.post("/", addCurrencyType);
-router.get("/", getAllCurrencyTypes);
-router.get("/:id", getCurrencyTypeById);
-router.patch("/:id", updateCurrencyType);
-router.delete("/:id", deleteCurrencyType);
+router.post("/", addCurrencyType)
+router.get("/", getAllCurrencyTypes)
+router.get("/:id", getCurrencyTypeById)
+router.put("/:id", updateCurrencyType)
+router.delete("/:id", deleteCurrencyType)
 
-module.exports = router;
+module.exports = router

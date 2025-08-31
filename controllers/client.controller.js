@@ -1,12 +1,12 @@
-const Client = require("../models/client");
+const Client = require("../models/client")
 
 const addClient = async (req, res) => {
     try {
-        const { full_name, phone_number, email, address, location } = req.body;
+        const { full_name, phone_number, email, address, location } = req.body
 
-        const candidate = await Client.findOne({ where: { email } });
+        const candidate = await Client.findOne({ where: { email } })
         if (candidate) {
-            return res.status(400).send({ message: "Bunday mijoz mavzud" });
+            return res.status(400).send({ message: "Bunday mijoz mavzud" })
         }
 
         const newClient = await Client.create({
@@ -15,15 +15,15 @@ const addClient = async (req, res) => {
             email,
             address,
             location,
-        });
+        })
 
         res.status(201).send({
             message: "New client added",
             data: newClient
-        });
+        })
     } catch (err) {
-        console.log(err);
-        res.status(500).send({ err });
+        console.log(err)
+        res.status(500).send({ err })
     }
 }
 
@@ -34,10 +34,10 @@ const getAllClient = async (req, res) => {
         res.status(200).send({
             message: "All clients",
             data: clients
-        });
+        })
     } catch (err) {
-        console.log(err);
-        res.status(500).send({ err });
+        console.log(err)
+        res.status(500).send({ err })
     }
 }
 
@@ -49,10 +49,10 @@ const getClientById = async (req, res) => {
         res.status(200).send({
             message: "client",
             data: client
-        });
+        })
     } catch (err) {
-        console.log(err);
-        res.status(500).send({ err });
+        console.log(err)
+        res.status(500).send({ err })
     }
 }
 
@@ -91,4 +91,4 @@ module.exports = {
     getClientById,
     getAllClient,
     deleteClientById
-};
+}
